@@ -24,6 +24,7 @@
             android:fontFamily="@font/mabrypro_bold"
             android:textColor="@color/text_color_title"
             android:textSize="36sp"
+            android:includeFontPadding="false"
             />
 
         <LinearLayout

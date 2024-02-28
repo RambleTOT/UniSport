@@ -46,4 +46,15 @@ class OnBoardingFragment : Fragment() {
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding!!.buttonToLogin.setOnClickListener {
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            val loginFragment = LoginFragment()
+            transaction.replace(R.id.layout_fragment, loginFragment)
+            transaction.disallowAddToBackStack()
+            transaction.commit()
+        }
+    }
+
 }
