@@ -2,4 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="main_color">#4DC265</color>
+    <color name="text_color_title">#333333</color>
+    <color name="text_color_edit_text">#252525</color>
+    <color name="text_color_description">#101114</color>
+    <color name="text_color_hint">#979797</color>
+    <color name="text_color_second">#D7D7D7</color>
+    <color name="text_color_edit_text_background">#F0F0F0</color>
+    <color name="text_color_button_onboarding">#333333</color>
+    <color name="text_color_button_stroke">#ECECEC</color>
+    <color name="text_color_onboarding_description">#9B9B9B</color>
 </resources>
