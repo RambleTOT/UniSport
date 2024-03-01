@@ -7,6 +7,16 @@
     tools:context=".fragments.LoginFragment"
     android:background="@color/white">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/login_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="centerCrop" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,6 +27,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageButton
+            android:id="@+id/button_back_login"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/button_back_image"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,7 +41,70 @@
             android:textColor="@color/text_color_title"
             android:textSize="36sp"
             android:includeFontPadding="false"
+            android:layout_marginTop="36dp"
             />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@color/text_color_hint"
+            app:counterTextColor="@color/text_color_hint"
+            app:cursorColor="@color/text_color_edit_text"
+            style="@style/CustomTextInputLayout"
+            app:hintEnabled="false"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:minHeight="60dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="@string/phone_number"
+                android:textColorHint="@color/text_color_hint"
+                android:fontFamily="@font/mabrypro_medium"
+                android:textSize="15sp"
+                android:singleLine="true"
+                android:textCursorDrawable="@drawable/cursor_style_edit_text"
+                android:textColor="@color/text_color_edit_text"
+                android:maxLength="12"
+                android:inputType="phone"
+                style="@style/CustomTextInputEditText"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="9dp"
+            android:textColorHint="@color/text_color_hint"
+            app:counterTextColor="@color/text_color_hint"
+            app:cursorColor="@color/text_color_edit_text"
+            style="@style/CustomTextInputLayout"
+            app:hintEnabled="false"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_password"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:minHeight="60dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="@string/password"
+                android:textColorHint="@color/text_color_hint"
+                android:fontFamily="@font/mabrypro_medium"
+                android:textSize="15sp"
+                android:singleLine="true"
+                android:textCursorDrawable="@drawable/cursor_style_edit_text"
+                android:textColor="@color/text_color_edit_text"
+                android:maxLength="12"
+                android:inputType="textPassword"
+                style="@style/CustomTextInputEditText"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,34 +145,28 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:src="@drawable/login_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:scaleType="centerCrop"/>
-
-    <Button
-        android:id="@+id/button_login"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:backgroundTint="@color/main_color"
-        android:fontFamily="@font/mabrypro_medium"
-        android:paddingVertical="19dp"
-        android:text="@string/continue_next"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:cornerRadius="100dp"
-        android:lineSpacingExtra="4sp"
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
 
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/main_color"
+            android:fontFamily="@font/mabrypro_medium"
+            android:paddingVertical="19dp"
+            android:text="@string/continue_next"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:cornerRadius="100dp"
+            android:lineSpacingExtra="4sp" />
 
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
