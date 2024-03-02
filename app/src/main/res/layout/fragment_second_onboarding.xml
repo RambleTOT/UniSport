@@ -19,18 +19,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/onboarding_background"
-            tools:ignore="MissingConstraints" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="120dp"
-            android:src="@drawable/splash_screen_logo"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/image_onboarding_second"
             tools:ignore="MissingConstraints" />
 
         <LinearLayout
