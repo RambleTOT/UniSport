@@ -55,6 +55,13 @@ class OnBoardingFragment : Fragment() {
             transaction.disallowAddToBackStack()
             transaction.commit()
         }
+        binding!!.buttonToRegistration.setOnClickListener {
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            val registrationFragment = RegistrationFragment()
+            transaction.replace(R.id.layout_fragment, registrationFragment)
+            transaction.disallowAddToBackStack()
+            transaction.commit()
+        }
     }
 
 }

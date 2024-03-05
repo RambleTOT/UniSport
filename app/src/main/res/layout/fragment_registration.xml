@@ -1,9 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.RegistrationFragment"
+    android:background="@color/color_background">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <ImageButton
+            android:id="@+id/button_back_registration"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/button_back_image"/>
+
+        <TextView
+            android:id="@+id/text_reg_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Как вас зовут?"
+            android:layout_gravity="center"
+            android:fontFamily="@font/mabrypro_bold"
+            android:textColor="@color/text_color_button_onboarding"
+            android:textSize="40sp"
+            android:includeFontPadding="false"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="16dp"
+            android:gravity="center"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registration_edit_text_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="52dp"
+            android:textColorHint="@color/text_color_hint"
+            app:counterTextColor="@color/text_color_hint"
+            app:cursorColor="@color/text_color_edit_text"
+            style="@style/CustomTextInputLayout"
+            app:hintEnabled="false"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_name"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:minHeight="60dp"
+                android:background="@drawable/edit_text_background"
+                tools:hint="Ваше имя"
+                android:textColorHint="@color/text_color_hint"
+                android:fontFamily="@font/mabrypro_medium"
+                android:textSize="15sp"
+                android:singleLine="true"
+                android:textCursorDrawable="@drawable/cursor_style_edit_text"
+                android:textColor="@color/text_color_edit_text"
+                android:inputType="textPersonName"
+                style="@style/CustomTextInputEditText"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_role"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_marginHorizontal="2dp"
+            android:orientation="vertical">
+            
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image_child"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_registration_child"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:layout_marginBottom="11dp"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/checkbox_image_child"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_check_image_registration"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="24dp"
+                    android:visibility="gone"/>
+                
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp">
+
+                <ImageView
+                    android:id="@+id/image_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_registration_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/checkbox_image_parent"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_check_image_registration"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="24dp"
+                    android:visibility="gone"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/button_registration_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/color_block_button"
+            android:fontFamily="@font/mabrypro_medium"
+            android:paddingVertical="19dp"
+            android:text="@string/continue_next"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:cornerRadius="100dp"
+            android:lineSpacingExtra="4sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

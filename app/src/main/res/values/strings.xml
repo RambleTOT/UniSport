@@ -14,6 +14,11 @@
     <string name="onboarding_description_2">Участвуйте в соревнованиях по любимому виду спорта</string>
     <string name="onboarding_description_3">Подскажем ближайшие места для занятия спортом вместе с близкими</string>
     <string name="onboarding_description_4">Регистрируйтесь на спортивные события в вашем городе</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_registration_name">Как вас зовут?</string>
+    <string name="hint_registration_name">Ваше имя</string>
+    <string name="title_registration_phone">Ваш номер телефона</string>
+    <string name="hint_registration_phone">Номер телефона</string>
+    <string name="title_registration_password">Придумайте пароль</string>
+    <string name="hint_registration_password">Пароль</string>
+    <string name="title_registration_role">Расскажите нам, кто вы</string>
 </resources>
