@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.activity.addCallback
 import com.example.unisportinverse.R
 import com.example.unisportinverse.databinding.FragmentLoginBinding
@@ -36,6 +38,8 @@ class RegistrationFragment : Fragment() {
             backToOnboarding()
         }
         binding!!.buttonBackRegistration.setOnClickListener{
+            val scaleDown: Animation = AnimationUtils.loadAnimation(context, R.anim.image_button_click)
+            binding!!.buttonBackRegistration.startAnimation(scaleDown)
             backToOnboarding()
         }
         binding!!.buttonRegistrationNext.setOnClickListener{
@@ -43,10 +47,14 @@ class RegistrationFragment : Fragment() {
             plusCurrentScreen()
         }
         binding!!.imageChild.setOnClickListener {
+            val scaleDown: Animation = AnimationUtils.loadAnimation(context, R.anim.click_image_animation)
+            binding!!.imageChild.startAnimation(scaleDown)
             clickImage = 1
             changeCheckBox()
         }
         binding!!.imageParent.setOnClickListener {
+            val scaleDown: Animation = AnimationUtils.loadAnimation(context, R.anim.click_image_animation)
+            binding!!.imageParent.startAnimation(scaleDown)
             clickImage = 2
             changeCheckBox()
         }

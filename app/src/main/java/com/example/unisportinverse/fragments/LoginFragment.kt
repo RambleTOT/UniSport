@@ -1,14 +1,16 @@
 package com.example.unisportinverse.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.activity.addCallback
+import androidx.fragment.app.Fragment
 import com.example.unisportinverse.R
 import com.example.unisportinverse.databinding.FragmentLoginBinding
-import com.example.unisportinverse.databinding.FragmentSplashScreenBinding
+
 
 class LoginFragment : Fragment() {
 
@@ -30,6 +32,8 @@ class LoginFragment : Fragment() {
             backToOnboarding()
         }
         binding!!.buttonBackLogin.setOnClickListener{
+            val scaleDown: Animation = AnimationUtils.loadAnimation(context, R.anim.image_button_click)
+            binding!!.buttonBackLogin.startAnimation(scaleDown)
             backToOnboarding()
         }
     }
