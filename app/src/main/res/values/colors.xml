@@ -13,4 +13,6 @@
     <color name="text_color_button_stroke">#ECECEC</color>
     <color name="text_color_onboarding_description">#9B9B9B</color>
     <color name="color_background_edittext">#F0F0F0</color>
+    <color name="color_background">#F9F9F9</color>
+    <color name="color_block_button">#D1D1D1</color>
 </resources>
