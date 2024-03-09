@@ -1,4 +1,4 @@
-package com.example.unisportinverse.adapters
+package com.example.unisportinverse.presentation.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

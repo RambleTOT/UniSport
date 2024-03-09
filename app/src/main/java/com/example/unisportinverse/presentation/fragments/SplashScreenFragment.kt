@@ -1,4 +1,4 @@
-package com.example.unisportinverse.fragments
+package com.example.unisportinverse.presentation.fragments
 
 import android.os.Bundle
 import android.os.Handler

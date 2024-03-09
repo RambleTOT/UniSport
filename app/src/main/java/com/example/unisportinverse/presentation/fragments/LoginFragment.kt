@@ -1,4 +1,4 @@
-package com.example.unisportinverse.fragments
+package com.example.unisportinverse.presentation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -35,6 +35,13 @@ class LoginFragment : Fragment() {
             val scaleDown: Animation = AnimationUtils.loadAnimation(context, R.anim.image_button_click)
             binding!!.buttonBackLogin.startAnimation(scaleDown)
             backToOnboarding()
+        }
+        binding!!.textToRegistration.setOnClickListener {
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            val registrationFragment = RegistrationFragment()
+            transaction.replace(R.id.layout_fragment, registrationFragment)
+            transaction.disallowAddToBackStack()
+            transaction.commit()
         }
     }
 

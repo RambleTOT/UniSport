@@ -1,11 +1,11 @@
-package com.example.unisportinverse.activity
+package com.example.unisportinverse.presentation.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import com.example.unisportinverse.R
-import com.example.unisportinverse.fragments.SplashScreenFragment
+import com.example.unisportinverse.presentation.fragments.SplashScreenFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
