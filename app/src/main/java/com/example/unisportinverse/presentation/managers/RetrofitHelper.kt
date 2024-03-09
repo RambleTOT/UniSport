@@ -8,7 +8,7 @@ class RetrofitHelper {
 
     companion object {
 
-        private val BASE_URL = "https://inverse-tracker.ru/api/"
+        private val BASE_URL = "https://api.unisport.space/api/"
 
     }
 

@@ -12,7 +12,7 @@ import retrofit2.http.Path
 
 interface ApiMethod {
 
-    @POST("users/auth/token/login/")
+    @POST("auth/login")
     fun loginUser(
         @Body body: UserLoginEntity
     ): Call<GetTokenResponse>
