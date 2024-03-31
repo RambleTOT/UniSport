@@ -152,12 +152,10 @@ class LoginFragment : Fragment() {
                 if (response.isSuccessful) {
 //                    tokenManager.saveToken(response.body()!!.token.toString())
 //                    firstEntryManager.saveFirstEntry(true)
-//                    val transaction = activity!!.supportFragmentManager.beginTransaction()
-//                    transaction.replace(R.id.linear_fragment, BottomNavBarFragment())
-//                    transaction.disallowAddToBackStack()
-//                    transaction.commit()
-                    Log.d("MyLog", "Вошли)")
-
+                    val transaction = activity!!.supportFragmentManager.beginTransaction()
+                    transaction.replace(R.id.layout_fragment, BottomNavBarFragment())
+                    transaction.disallowAddToBackStack()
+                    transaction.commit()\
                 }else{
                     binding!!.textErrorLogin.visibility = View.VISIBLE
                 }
