@@ -156,8 +156,9 @@ class LoginFragment : Fragment() {
 //                    transaction.replace(R.id.linear_fragment, BottomNavBarFragment())
 //                    transaction.disallowAddToBackStack()
 //                    transaction.commit()
+                    Log.d("MyLog", "Вошли)")
+
                 }else{
-                    Log.d("MyLog", response.toString())
                     binding!!.textErrorLogin.visibility = View.VISIBLE
                 }
             }

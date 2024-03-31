@@ -16,10 +16,19 @@
     <string name="onboarding_description_4">Регистрируйтесь на спортивные события в вашем городе</string>
     <string name="title_registration_name">Как вас зовут?</string>
     <string name="hint_registration_name">Ваше имя</string>
+    <string name="hint_registration_surname">Ваше фамилия</string>
     <string name="title_registration_phone">Ваш номер телефона</string>
     <string name="hint_registration_phone">Номер телефона</string>
     <string name="title_registration_password">Придумайте пароль</string>
     <string name="hint_registration_password">Пароль</string>
     <string name="title_registration_role">Расскажите нам, кто вы</string>
-    <string name="text_error_login">Неправильная почта или пароль</string>
+    <string name="title_registration_count_child"> У вас есть дети?</string>
+    <string name="text_error_login">Неправильный номер или пароль</string>
+    <string name="text_error_register_password">Пароль должен быть не меньше 8 символов</string>
+    <string name="text_section">Секции</string>
+    <string name="text_map">Карта</string>
+    <string name="text_events">События</string>
+    <string name="text_profile">Профиль</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

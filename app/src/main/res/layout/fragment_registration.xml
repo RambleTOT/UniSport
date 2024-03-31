@@ -57,7 +57,7 @@
                 android:layout_height="60dp"
                 android:minHeight="60dp"
                 android:background="@drawable/edit_text_background"
-                tools:hint="Ваше имя"
+                android:hint="@string/hint_registration_name"
                 android:textColorHint="@color/text_color_hint"
                 android:fontFamily="@font/mabrypro_medium"
                 android:textSize="15sp"
@@ -69,6 +69,112 @@
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registration_edit_text_surname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:textColorHint="@color/text_color_hint"
+            app:counterTextColor="@color/text_color_hint"
+            app:cursorColor="@color/text_color_edit_text"
+            style="@style/CustomTextInputLayout"
+            app:hintEnabled="false"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_surname"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:minHeight="60dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="@string/hint_registration_surname"
+                android:textColorHint="@color/text_color_hint"
+                android:fontFamily="@font/mabrypro_medium"
+                android:textSize="15sp"
+                android:singleLine="true"
+                android:textCursorDrawable="@drawable/cursor_style_edit_text"
+                android:textColor="@color/text_color_edit_text"
+                android:inputType="textPersonName"
+                style="@style/CustomTextInputEditText"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registration_edit_text_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="52dp"
+            android:textColorHint="@color/text_color_hint"
+            app:counterTextColor="@color/text_color_hint"
+            app:cursorColor="@color/text_color_edit_text"
+            style="@style/CustomTextInputLayout"
+            app:hintEnabled="false"
+            android:visibility="visible"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_phone"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:minHeight="60dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="@string/hint_registration_phone"
+                android:textColorHint="@color/text_color_hint"
+                android:fontFamily="@font/mabrypro_medium"
+                android:textSize="15sp"
+                android:singleLine="true"
+                android:textCursorDrawable="@drawable/cursor_style_edit_text"
+                android:textColor="@color/text_color_edit_text"
+                android:inputType="phone"
+                style="@style/CustomTextInputEditText"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registration_edit_text_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="52dp"
+            android:textColorHint="@color/text_color_hint"
+            app:counterTextColor="@color/text_color_hint"
+            app:cursorColor="@color/text_color_edit_text"
+            style="@style/CustomTextInputLayout"
+            app:hintEnabled="false"
+            android:visibility="gone"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_password"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:minHeight="60dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="@string/hint_registration_password"
+                android:textColorHint="@color/text_color_hint"
+                android:fontFamily="@font/mabrypro_medium"
+                android:textSize="15sp"
+                android:singleLine="true"
+                android:textCursorDrawable="@drawable/cursor_style_edit_text"
+                android:textColor="@color/text_color_edit_text"
+                android:inputType="textPassword"
+                style="@style/CustomTextInputEditText"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/text_error_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mabrypro_medium"
+            android:textColor="@color/color_error"
+            android:textSize="14sp"
+            android:layout_marginTop="9dp"
+            android:visibility="gone"
+            />
 
         <LinearLayout
             android:id="@+id/linear_role"
@@ -136,6 +242,72 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/linear_count_child"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_marginHorizontal="2dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image_yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_check_yes"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:layout_marginBottom="11dp"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/checkbox_image_yes"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_check_image_registration"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="24dp"
+                    android:visibility="gone"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp">
+
+                <ImageView
+                    android:id="@+id/image_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_check_no"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/checkbox_image_no"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_check_image_registration"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="24dp"
+                    android:visibility="gone"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -158,6 +330,7 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             app:cornerRadius="100dp"
+            android:enabled="false"
             android:lineSpacingExtra="4sp" />
 
     </LinearLayout>

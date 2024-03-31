@@ -16,4 +16,6 @@
     <color name="color_background">#F9F9F9</color>
     <color name="color_block_button">#D1D1D1</color>
     <color name="color_error">#EB5757</color>
+    <color name="color_icon_not_active">#D9D9D9</color>
+    <color name="color_icon_active">#5ACC71</color>
 </resources>
