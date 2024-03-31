@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.unisportinverse.EventsFragment
-import com.example.unisportinverse.MapFragment
 import com.example.unisportinverse.ProfileFragment
 import com.example.unisportinverse.R
 import com.example.unisportinverse.SectionFragment
