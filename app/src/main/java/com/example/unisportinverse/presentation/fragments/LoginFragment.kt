@@ -155,7 +155,7 @@ class LoginFragment : Fragment() {
                     val transaction = activity!!.supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.layout_fragment, BottomNavBarFragment())
                     transaction.disallowAddToBackStack()
-                    transaction.commit()\
+                    transaction.commit()
                 }else{
                     binding!!.textErrorLogin.visibility = View.VISIBLE
                 }

@@ -60,6 +60,7 @@ class RegistrationFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback {
             backToOnboarding()
         }
+
         binding!!.buttonBackRegistration.setOnClickListener{
             val scaleDown: Animation = AnimationUtils.loadAnimation(context, R.anim.image_button_click)
             binding!!.buttonBackRegistration.startAnimation(scaleDown)

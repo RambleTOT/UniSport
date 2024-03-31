@@ -55,9 +55,13 @@ dependencies {
     //Page Indicator
     implementation("com.tbuonomo:dotsindicator:5.0")
 
+    // Http requests
     implementation("com.squareup.retrofit2:retrofit:2.3.0")
     implementation("com.squareup.retrofit2:adapter-rxjava2:2.3.0")
     implementation("com.squareup.retrofit2:converter-gson:2.3.0")
     implementation("com.squareup.retrofit2:converter-scalars:2.1.0")
     implementation("com.squareup.okhttp3:logging-interceptor:3.9.1")
+
+    // Yandex Map
+    implementation("com.yandex.android:maps.mobile:4.4.0-full")
 }
