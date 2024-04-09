@@ -20,6 +20,7 @@ import com.example.unisportinverse.data.model.GetTokenResponse
 import com.example.unisportinverse.data.model.UserLoginEntity
 import com.example.unisportinverse.databinding.FragmentLoginBinding
 import com.example.unisportinverse.presentation.managers.RetrofitHelper
+import com.example.unisportinverse.presentation.managers.TokenManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,6 +31,7 @@ class LoginFragment : Fragment() {
     private var binding: FragmentLoginBinding? = null
     private var isEmptyPhone = false
     private var isEmptyPassword = false
+    private lateinit var tokenManager: TokenManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +49,11 @@ class LoginFragment : Fragment() {
             backToOnboarding()
         }
         initEditText()
+        init()
+    }
+
+    private fun init(){
+        tokenManager = TokenManager(requireActivity())
         binding!!.buttonBackLogin.setOnClickListener{
             val scaleDown: Animation = AnimationUtils.loadAnimation(context, R.anim.image_button_click)
             binding!!.buttonBackLogin.startAnimation(scaleDown)
@@ -66,7 +73,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-    fun initEditText(){
+    private fun initEditText(){
         binding!!.editTextPassword.setOnClickListener {
             binding!!.textErrorLogin.visibility = View.GONE
         }
@@ -150,7 +157,7 @@ class LoginFragment : Fragment() {
                 response: Response<GetTokenResponse>
             ) {
                 if (response.isSuccessful) {
-//                    tokenManager.saveToken(response.body()!!.token.toString())
+                    tokenManager.saveToken(response.body()!!.token.toString())
 //                    firstEntryManager.saveFirstEntry(true)
                     val transaction = activity!!.supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.layout_fragment, BottomNavBarFragment())

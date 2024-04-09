@@ -4,17 +4,17 @@ import com.google.gson.annotations.SerializedName
 
 data class GetSectionsResponse(
     @SerializedName("id")
-    val id: Int,
+    val id: Int?,
     @SerializedName("address")
-    val address: String,
+    val address: String?,
     @SerializedName("age")
-    val age: String,
+    val age: String?,
     @SerializedName("category")
-    val category: CategorySections,
+    val category: CategorySections?,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("name")
-    val name: String,
+    val name: String?,
     @SerializedName("timetable")
-    val timetable: String,
+    val timetable: String?,
 )

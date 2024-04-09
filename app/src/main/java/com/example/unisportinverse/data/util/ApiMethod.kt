@@ -1,16 +1,15 @@
 package com.example.unisportinverse.data.util
 
+import com.example.unisportinverse.data.model.GetMyAccount
 import com.example.unisportinverse.data.model.GetSectionsResponse
 import com.example.unisportinverse.data.model.GetTokenResponse
 import com.example.unisportinverse.data.model.UserLoginEntity
 import com.example.unisportinverse.data.model.UserRegisterEntity
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
-import retrofit2.http.Path
 
 interface ApiMethod {
 
@@ -27,6 +26,11 @@ interface ApiMethod {
     @GET("sections")
     fun getNews(
     ): Call<List<GetSectionsResponse>>
+
+    @GET("users/me")
+    fun getMyAccount(
+        @Header("Authorization") token: String
+    ): Call<GetMyAccount>
 
 
 }
