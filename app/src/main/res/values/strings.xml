@@ -29,6 +29,7 @@
     <string name="text_map">Карта</string>
     <string name="text_events">События</string>
     <string name="text_profile">Профиль</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="text_hint_section_search">Секция, мероприятие</string>
+    <string name="text_more_detailed">Подробнее</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -19,4 +19,6 @@
     <color name="color_icon_not_active">#D9D9D9</color>
     <color name="color_icon_active">#5ACC71</color>
     <color name="color_phone_profile">#949494</color>
+    <color name="color_title_card">#101114</color>
+    <color name="color_description_card">#332E2D</color>
 </resources>

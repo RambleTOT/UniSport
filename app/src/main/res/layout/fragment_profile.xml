@@ -87,7 +87,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/image_check_no" />
+            android:src="@drawable/test_photo" />
 
     </androidx.cardview.widget.CardView>
 

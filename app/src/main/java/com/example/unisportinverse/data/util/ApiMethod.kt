@@ -1,5 +1,6 @@
 package com.example.unisportinverse.data.util
 
+import com.example.unisportinverse.data.model.GetSectionsResponse
 import com.example.unisportinverse.data.model.GetTokenResponse
 import com.example.unisportinverse.data.model.UserLoginEntity
 import com.example.unisportinverse.data.model.UserRegisterEntity
@@ -22,6 +23,10 @@ interface ApiMethod {
     fun registerUser(
         @Body body: UserRegisterEntity
     ): Call<GetTokenResponse>
+
+    @GET("sections")
+    fun getNews(
+    ): Call<List<GetSectionsResponse>>
 
 
 }
