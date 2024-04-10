@@ -1,4 +1,4 @@
-package com.example.unisportinverse
+package com.example.unisportinverse.presentation.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.unisportinverse.data.model.GetMyAccount
 import com.example.unisportinverse.databinding.FragmentProfileBinding
-import com.example.unisportinverse.databinding.FragmentRegistrationBinding
 import com.example.unisportinverse.presentation.managers.RetrofitHelper
 import com.example.unisportinverse.presentation.managers.TokenManager
 import retrofit2.Call

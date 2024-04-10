@@ -196,7 +196,7 @@ class RegistrationFragment : Fragment() {
             4 -> {
                 if (clickImage == 1){
                     role = "child"
-                    //register(name, phone, password, role)
+                    //register(name, surname, phone, password, role)
                     val transaction = requireActivity().supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.layout_fragment, BottomNavBarFragment())
                     transaction.disallowAddToBackStack()
@@ -343,8 +343,8 @@ class RegistrationFragment : Fragment() {
         }
     }
 
-    private fun register(firstname: String, phone: String, password: String, role: String){
-        RetrofitHelper().getApi().registerUser(UserRegisterEntity(firstname, phone, password, role)).enqueue(object :
+    private fun register(firstname: String, surname: String, phone: String, password: String, role: String){
+        RetrofitHelper().getApi().registerUser(UserRegisterEntity(firstname, surname, phone, password, role)).enqueue(object :
             Callback<GetTokenResponse> {
             override fun onResponse(
                 call: Call<GetTokenResponse>,

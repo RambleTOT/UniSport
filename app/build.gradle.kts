@@ -63,5 +63,5 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:3.9.1")
 
     // Yandex Map
-    implementation("com.yandex.android:maps.mobile:4.4.0-full")
+    implementation("com.yandex.android:maps.mobile:4.0.0-full")
 }

@@ -1,4 +1,4 @@
-package com.example.unisportinverse
+package com.example.unisportinverse.presentation.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unisportinverse.data.model.GetSectionsResponse
-import com.example.unisportinverse.databinding.FragmentMapBinding
 import com.example.unisportinverse.databinding.FragmentSectionBinding
 import com.example.unisportinverse.presentation.adapters.SectionsAdapter
 import com.example.unisportinverse.presentation.managers.RetrofitHelper
