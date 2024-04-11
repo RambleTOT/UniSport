@@ -64,4 +64,6 @@ dependencies {
 
     // Yandex Map
     implementation("com.yandex.android:maps.mobile:4.0.0-full")
+
+    implementation("com.google.android.gms:play-services-location:21.2.0")
 }
