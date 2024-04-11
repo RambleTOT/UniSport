@@ -67,6 +67,8 @@ class LoginFragment : Fragment() {
             transaction.commit()
         }
         binding!!.buttonLogin.setOnClickListener {
+            binding!!.buttonLogin.visibility = View.INVISIBLE
+            binding!!.progressLogin.visibility = View.VISIBLE
             login(binding!!.editTextPhoneNumber.text.toString(),
                 binding!!.editTextPassword.text.toString()
             )
@@ -159,18 +161,24 @@ class LoginFragment : Fragment() {
                 if (response.isSuccessful) {
                     tokenManager.saveToken(response.body()!!.token.toString())
 //                    firstEntryManager.saveFirstEntry(true)
+                    binding!!.buttonLogin.visibility = View.VISIBLE
+                    binding!!.progressLogin.visibility = View.INVISIBLE
                     val transaction = activity!!.supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.layout_fragment, BottomNavBarFragment())
                     transaction.disallowAddToBackStack()
                     transaction.commit()
                 }else{
                     binding!!.textErrorLogin.visibility = View.VISIBLE
+                    binding!!.buttonLogin.visibility = View.VISIBLE
+                    binding!!.progressLogin.visibility = View.INVISIBLE
                 }
             }
 
             override fun onFailure(call: Call<GetTokenResponse>, t: Throwable) {
                 Log.d("MyLog", t.message.toString())
                 Toast.makeText(activity, "Возникла ошибка, проверьте подключение", Toast.LENGTH_SHORT).show()
+                binding!!.buttonLogin.visibility = View.VISIBLE
+                binding!!.progressLogin.visibility = View.INVISIBLE
             }
 
         })
