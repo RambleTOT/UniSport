@@ -320,20 +320,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/button_registration_next"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/color_block_button"
-            android:fontFamily="@font/mabrypro_medium"
-            android:paddingVertical="21dp"
-            android:text="@string/continue_next"
-            android:textColor="@color/white"
-            android:includeFontPadding="false"
-            android:textSize="18sp"
-            app:cornerRadius="100dp"
-            android:enabled="false"
-            android:lineSpacingExtra="4sp" />
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button_registration_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/color_block_button"
+                android:fontFamily="@font/mabrypro_medium"
+                android:paddingVertical="21dp"
+                android:text="@string/continue_next"
+                android:includeFontPadding="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:cornerRadius="100dp"
+                android:lineSpacingExtra="4sp"
+                android:enabled="false" />
+
+            <ProgressBar
+                android:id="@+id/progress_registration"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:indeterminateTint="@android:color/black"
+                android:visibility="invisible"
+                tools:visibility="visible"/>
+        </FrameLayout>
+
 
     </LinearLayout>
 

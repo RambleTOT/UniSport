@@ -22,7 +22,9 @@ import com.example.unisportinverse.data.model.UserLoginEntity
 import com.example.unisportinverse.data.model.UserRegisterEntity
 import com.example.unisportinverse.databinding.FragmentLoginBinding
 import com.example.unisportinverse.databinding.FragmentRegistrationBinding
+import com.example.unisportinverse.presentation.managers.FirstEntryManager
 import com.example.unisportinverse.presentation.managers.RetrofitHelper
+import com.example.unisportinverse.presentation.managers.TokenManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,6 +46,8 @@ class RegistrationFragment : Fragment() {
     private var isEmptyPhone = false
     private var isEmptyPassword = false
     private var isEmptyCountChild = false
+    private lateinit var tokenManager: TokenManager
+    private lateinit var firstEntryManager: FirstEntryManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,6 +64,14 @@ class RegistrationFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback {
             backToOnboarding()
         }
+
+        init()
+        initEditText()
+        plusCurrentScreen()
+    }
+
+    private fun init(){
+        tokenManager = TokenManager(requireActivity())
 
         binding!!.buttonBackRegistration.setOnClickListener{
             val scaleDown: Animation = AnimationUtils.loadAnimation(context, R.anim.image_button_click)
@@ -107,8 +119,6 @@ class RegistrationFragment : Fragment() {
             blockButton()
             changeCheckBoxCount()
         }
-        initEditText()
-        plusCurrentScreen()
     }
 
     fun backToOnboarding(){
@@ -157,6 +167,7 @@ class RegistrationFragment : Fragment() {
     fun plusCurrentScreen(){
         when(currentScreen){
             0 -> {
+                blockButton()
                 binding!!.registrationEditTextPhone.visibility = View.GONE
                 binding!!.registrationEditTextName.visibility = View.VISIBLE
                 binding!!.registrationEditTextSurname.visibility = View.VISIBLE
@@ -166,6 +177,7 @@ class RegistrationFragment : Fragment() {
                 phone = binding!!.editTextPhone.text.toString()
             }
             1 -> {
+                blockButton()
                 name = binding!!.editTextName.text.toString()
                 surname = binding!!.editTextSurname.text.toString()
                 binding!!.registrationEditTextName.visibility = View.GONE
@@ -177,6 +189,7 @@ class RegistrationFragment : Fragment() {
                 password = binding!!.editTextPassword.text.toString()
             }
             2 -> {
+                blockButton()
                 phone = binding!!.editTextPhone.text.toString()
                 binding!!.registrationEditTextPhone.visibility = View.GONE
                 binding!!.registrationEditTextPassword.visibility = View.VISIBLE
@@ -194,22 +207,23 @@ class RegistrationFragment : Fragment() {
                 binding!!.linearCountChild.visibility = View.GONE
             }
             4 -> {
+                blockButton()
                 if (clickImage == 1){
                     role = "child"
-                    //register(name, surname, phone, password, role)
-                    val transaction = requireActivity().supportFragmentManager.beginTransaction()
-                    transaction.replace(R.id.layout_fragment, BottomNavBarFragment())
-                    transaction.disallowAddToBackStack()
-                    transaction.commit()
+                    register(name, surname, phone, password, role)
                 }else{
-                    role = "parent"
                     binding!!.linearRole.visibility = View.GONE
                     binding!!.linearCountChild.visibility = View.VISIBLE
                     binding!!.textRegTitle.text = getString(R.string.title_registration_count_child)
                 }
             }
             5->{
-
+                role = if (clickImageCountChild == 1){
+                    "parent"
+                }else{
+                    "member"
+                }
+                register(name, surname, phone, password, role)
             }
         }
     }
@@ -218,6 +232,14 @@ class RegistrationFragment : Fragment() {
         binding!!.editTextName.addTextChangedListener(object : TextWatcher {
             // when there is no text added
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                binding!!.textErrorRegister.visibility = View.GONE
+            }
+
+            override fun afterTextChanged(s: Editable) {
                 if (s.toString().trim().isEmpty()) {
                     isEmptyName = false
                     blockButton()
@@ -226,22 +248,19 @@ class RegistrationFragment : Fragment() {
                     blockButton()
                 }
             }
+        })
+
+        binding!!.editTextSurname.addTextChangedListener(object : TextWatcher {
+            // when there is no text added
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+
+            }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 binding!!.textErrorRegister.visibility = View.GONE
             }
 
             override fun afterTextChanged(s: Editable) {
-                if (s.toString().trim().isEmpty()) {
-                    isEmptyName = false
-                    blockButton()
-                }
-            }
-        })
-
-        binding!!.editTextSurname.addTextChangedListener(object : TextWatcher {
-            // when there is no text added
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
                 if (s.toString().trim().isEmpty()) {
                     isEmptySurname = false
                     blockButton()
@@ -250,22 +269,19 @@ class RegistrationFragment : Fragment() {
                     blockButton()
                 }
             }
+        })
+
+        binding!!.editTextPhone.addTextChangedListener(object : TextWatcher {
+            // when there is no text added
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+
+            }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 binding!!.textErrorRegister.visibility = View.GONE
             }
 
             override fun afterTextChanged(s: Editable) {
-                if (s.toString().trim().isEmpty()) {
-                    isEmptySurname = false
-                    blockButton()
-                }
-            }
-        })
-
-        binding!!.editTextPhone.addTextChangedListener(object : TextWatcher {
-            // when there is no text added
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
                 if (s.toString().trim().isEmpty()) {
                     isEmptyPhone = false
                     blockButton()
@@ -274,29 +290,12 @@ class RegistrationFragment : Fragment() {
                     blockButton()
                 }
             }
-
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                binding!!.textErrorRegister.visibility = View.GONE
-            }
-
-            override fun afterTextChanged(s: Editable) {
-                if (s.toString().trim().isEmpty()) {
-                    isEmptyPhone = false
-                    blockButton()
-                }
-            }
         })
 
         binding!!.editTextPassword.addTextChangedListener(object : TextWatcher {
             // when there is no text added
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-                if (s.toString().trim().isEmpty()) {
-                    isEmptyPassword = false
-                    blockButton()
-                } else {
-                    isEmptyPassword = true
-                    blockButton()
-                }
+
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -306,6 +305,9 @@ class RegistrationFragment : Fragment() {
             override fun afterTextChanged(s: Editable) {
                 if (s.toString().trim().isEmpty()) {
                     isEmptyPassword = false
+                    blockButton()
+                } else {
+                    isEmptyPassword = true
                     blockButton()
                 }
             }
@@ -337,13 +339,20 @@ class RegistrationFragment : Fragment() {
         }else if (clickImage > 0 && currentScreen == 3){
             binding!!.buttonRegistrationNext.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(requireActivity(), R.color.black))
             binding!!.buttonRegistrationNext.isEnabled = true
-        }else{
+        }else if (clickImageCountChild > 0 && currentScreen == 4){
+            binding!!.buttonRegistrationNext.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(requireActivity(), R.color.black))
+            binding!!.buttonRegistrationNext.isEnabled = true
+        }else {
             binding!!.buttonRegistrationNext.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(requireActivity(), R.color.color_block_button))
             binding!!.buttonRegistrationNext.isEnabled = false
         }
     }
 
     private fun register(firstname: String, surname: String, phone: String, password: String, role: String){
+
+        binding!!.buttonRegistrationNext.visibility = View.INVISIBLE
+        binding!!.progressRegistration.visibility = View.VISIBLE
+
         RetrofitHelper().getApi().registerUser(UserRegisterEntity(firstname, surname, phone, password, role)).enqueue(object :
             Callback<GetTokenResponse> {
             override fun onResponse(
@@ -351,22 +360,26 @@ class RegistrationFragment : Fragment() {
                 response: Response<GetTokenResponse>
             ) {
                 if (response.isSuccessful) {
-//                    tokenManager.saveToken(response.body()!!.token.toString())
-//                    firstEntryManager.saveFirstEntry(true)
-//                    val transaction = activity!!.supportFragmentManager.beginTransaction()
-//                    transaction.replace(R.id.linear_fragment, BottomNavBarFragment())
-//                    transaction.disallowAddToBackStack()
-//                    transaction.commit()
+                    tokenManager.saveToken(response.body()!!.token.toString())
+                    firstEntryManager.saveFirstEntry(true)
+                    binding!!.progressRegistration.visibility = View.INVISIBLE
+                    val transaction = activity!!.supportFragmentManager.beginTransaction()
+                    transaction.replace(R.id.layout_fragment, BottomNavBarFragment())
+                    transaction.disallowAddToBackStack()
+                    transaction.commit()
                     Toast.makeText(activity, "Зарегался", Toast.LENGTH_SHORT).show()
                 }else{
                     Log.d("MyLog", response.toString())
-                    //binding!!.textErrorLogin.visibility = View.VISIBLE
+                    binding!!.buttonRegistrationNext.visibility = View.VISIBLE
+                    binding!!.progressRegistration.visibility = View.INVISIBLE
                 }
             }
 
             override fun onFailure(call: Call<GetTokenResponse>, t: Throwable) {
                 Log.d("MyLog", t.message.toString())
                 Toast.makeText(activity, "Возникла ошибка, проверьте подключение", Toast.LENGTH_SHORT).show()
+                binding!!.buttonRegistrationNext.visibility = View.VISIBLE
+                binding!!.progressRegistration.visibility = View.INVISIBLE
             }
 
         })
