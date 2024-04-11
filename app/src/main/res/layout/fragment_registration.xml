@@ -128,7 +128,7 @@
                 android:textCursorDrawable="@drawable/cursor_style_edit_text"
                 android:textColor="@color/text_color_edit_text"
                 android:inputType="phone"
-                android:digits="0123456789"
+                android:digits="0123456789+"
                 style="@style/CustomTextInputEditText"
                 />
 

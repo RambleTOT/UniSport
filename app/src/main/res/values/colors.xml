@@ -21,4 +21,7 @@
     <color name="color_phone_profile">#949494</color>
     <color name="color_title_card">#101114</color>
     <color name="color_description_card">#332E2D</color>
+    <color name="color_ground_sheet_tilte">#868686</color>
+    <color name="color_ground_sheet_name">#171717</color>
+    <color name="color_ground_sheet_bottom">#FAFAFA</color>
 </resources>

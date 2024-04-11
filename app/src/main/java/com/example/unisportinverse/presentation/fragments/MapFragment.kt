@@ -18,10 +18,13 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.content.PermissionChecker
 import androidx.core.content.PermissionChecker.checkSelfPermission
+import androidx.fragment.app.FragmentActivity
 import com.example.unisportinverse.R
 import com.example.unisportinverse.databinding.FragmentMapBinding
+import com.example.unisportinverse.presentation.adapters.BottomSheetGround
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.location.LocationManager
@@ -98,9 +101,18 @@ class MapFragment : Fragment(){
     }
 
     private val mapObjectTapListener = MapObjectTapListener { mapObject, point ->
-        Toast.makeText(requireActivity(), point.toString(), Toast.LENGTH_SHORT).show()
+        showBottomSheet()
         true
     }
+
+    private fun showBottomSheet(){
+        val bottomSheet = BottomSheetGround()
+        val fragmentManager = (activity as FragmentActivity).supportFragmentManager
+        fragmentManager.let {
+            bottomSheet.show(it, BottomSheetGround.TAG)
+        }
+    }
+
     private fun getMyLocation(){
         if (checkPermissions()){
             if (ActivityCompat.checkSelfPermission(
@@ -133,7 +145,7 @@ class MapFragment : Fragment(){
             arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION,
             android.Manifest.permission.ACCESS_FINE_LOCATION),
             PERMISSION_REQUEST_ACCESS_LOCATION
-            )
+        )
     }
 
     private fun checkPermissions(): Boolean{

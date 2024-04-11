@@ -89,7 +89,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/test_photo" />
+            android:src="@drawable/image_base_profile" />
 
     </androidx.cardview.widget.CardView>
 
