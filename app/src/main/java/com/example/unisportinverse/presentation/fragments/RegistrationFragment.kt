@@ -72,6 +72,7 @@ class RegistrationFragment : Fragment() {
 
     private fun init(){
         tokenManager = TokenManager(requireActivity())
+        firstEntryManager = FirstEntryManager(requireActivity())
 
         binding!!.buttonBackRegistration.setOnClickListener{
             val scaleDown: Animation = AnimationUtils.loadAnimation(context, R.anim.image_button_click)

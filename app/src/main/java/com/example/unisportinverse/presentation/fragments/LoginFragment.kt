@@ -19,6 +19,7 @@ import com.example.unisportinverse.R
 import com.example.unisportinverse.data.model.GetTokenResponse
 import com.example.unisportinverse.data.model.UserLoginEntity
 import com.example.unisportinverse.databinding.FragmentLoginBinding
+import com.example.unisportinverse.presentation.managers.FirstEntryManager
 import com.example.unisportinverse.presentation.managers.RetrofitHelper
 import com.example.unisportinverse.presentation.managers.TokenManager
 import retrofit2.Call
@@ -32,6 +33,7 @@ class LoginFragment : Fragment() {
     private var isEmptyPhone = false
     private var isEmptyPassword = false
     private lateinit var tokenManager: TokenManager
+    private lateinit var firstEntryManager: FirstEntryManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,6 +56,7 @@ class LoginFragment : Fragment() {
 
     private fun init(){
         tokenManager = TokenManager(requireActivity())
+        firstEntryManager = FirstEntryManager(requireActivity())
         binding!!.buttonBackLogin.setOnClickListener{
             val scaleDown: Animation = AnimationUtils.loadAnimation(context, R.anim.image_button_click)
             binding!!.buttonBackLogin.startAnimation(scaleDown)
@@ -154,7 +157,7 @@ class LoginFragment : Fragment() {
             ) {
                 if (response.isSuccessful) {
                     tokenManager.saveToken(response.body()!!.token.toString())
-//                    firstEntryManager.saveFirstEntry(true)
+                    firstEntryManager.saveFirstEntry(true)
                     binding!!.progressLogin.visibility = View.INVISIBLE
                     val transaction = activity!!.supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.layout_fragment, BottomNavBarFragment())

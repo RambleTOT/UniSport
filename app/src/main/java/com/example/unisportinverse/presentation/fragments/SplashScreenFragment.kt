@@ -8,10 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.unisportinverse.R
 import com.example.unisportinverse.databinding.FragmentSplashScreenBinding
+import com.example.unisportinverse.presentation.managers.FirstEntryManager
 
 class SplashScreenFragment : Fragment() {
 
     private var binding: FragmentSplashScreenBinding? = null
+    private lateinit var firstEntryManager: FirstEntryManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,13 +27,24 @@ class SplashScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Handler().postDelayed(Runnable {
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            val onboardingFragment = OnBoardingFragment()
-            transaction.replace(R.id.layout_fragment, onboardingFragment)
-            transaction.disallowAddToBackStack()
-            transaction.commit()
-        }, 3000)
+        firstEntryManager = FirstEntryManager(requireActivity())
+        if (firstEntryManager.getFirstEntry() == true){
+            Handler().postDelayed(Runnable {
+                val transaction = requireActivity().supportFragmentManager.beginTransaction()
+                val bottomNavBarFragment = BottomNavBarFragment()
+                transaction.replace(R.id.layout_fragment, bottomNavBarFragment)
+                transaction.disallowAddToBackStack()
+                transaction.commit()
+            }, 3000)
+        }else{
+            Handler().postDelayed(Runnable {
+                val transaction = requireActivity().supportFragmentManager.beginTransaction()
+                val onboardingFragment = OnBoardingFragment()
+                transaction.replace(R.id.layout_fragment, onboardingFragment)
+                transaction.disallowAddToBackStack()
+                transaction.commit()
+            }, 3000)
+        }
     }
 
 }
