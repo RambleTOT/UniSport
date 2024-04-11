@@ -87,6 +87,14 @@ class LoginFragment : Fragment() {
         binding!!.editTextPhoneNumber.addTextChangedListener(object : TextWatcher {
             // when there is no text added
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                binding!!.textErrorLogin.visibility = View.GONE
+            }
+
+            override fun afterTextChanged(s: Editable) {
                 if (s.toString().trim().isEmpty()) {
                     isEmptyPhone = false
                     blockButton()
@@ -95,29 +103,12 @@ class LoginFragment : Fragment() {
                     blockButton()
                 }
             }
-
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                binding!!.textErrorLogin.visibility = View.GONE
-            }
-
-            override fun afterTextChanged(s: Editable) {
-                if (s.toString().trim().isEmpty()) {
-                    isEmptyPhone = false
-                    blockButton()
-                }
-            }
         })
 
         binding!!.editTextPassword.addTextChangedListener(object : TextWatcher {
             // when there is no text added
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-                if (s.toString().trim().isEmpty()) {
-                    isEmptyPassword = false
-                    blockButton()
-                } else {
-                    isEmptyPassword = true
-                    blockButton()
-                }
+
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -127,6 +118,9 @@ class LoginFragment : Fragment() {
             override fun afterTextChanged(s: Editable) {
                 if (s.toString().trim().isEmpty()) {
                     isEmptyPassword = false
+                    blockButton()
+                }else {
+                    isEmptyPassword = true
                     blockButton()
                 }
             }
@@ -161,7 +155,6 @@ class LoginFragment : Fragment() {
                 if (response.isSuccessful) {
                     tokenManager.saveToken(response.body()!!.token.toString())
 //                    firstEntryManager.saveFirstEntry(true)
-                    binding!!.buttonLogin.visibility = View.VISIBLE
                     binding!!.progressLogin.visibility = View.INVISIBLE
                     val transaction = activity!!.supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.layout_fragment, BottomNavBarFragment())
