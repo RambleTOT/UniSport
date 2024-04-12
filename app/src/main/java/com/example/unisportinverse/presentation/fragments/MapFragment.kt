@@ -19,9 +19,14 @@ import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.content.PermissionChecker
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unisportinverse.R
+import com.example.unisportinverse.data.model.GetGroundsResponse
+import com.example.unisportinverse.data.model.GetSectionsResponse
 import com.example.unisportinverse.databinding.FragmentMapBinding
 import com.example.unisportinverse.presentation.adapters.BottomSheetGround
+import com.example.unisportinverse.presentation.adapters.SectionsAdapter
+import com.example.unisportinverse.presentation.managers.RetrofitHelper
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -37,6 +42,9 @@ import com.yandex.mapkit.map.MapObjectCollection
 import com.yandex.mapkit.map.MapObjectTapListener
 import com.yandex.mapkit.map.PlacemarkMapObject
 import com.yandex.runtime.image.ImageProvider
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MapFragment : Fragment(){
 
@@ -47,6 +55,8 @@ class MapFragment : Fragment(){
     private lateinit var locationManager: LocationManager
     private lateinit var startLocation: Point
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var listPoint: List<Point>
+    private lateinit var listData: List<GetGroundsResponse>
 
     companion object {
         private const val PERMISSION_REQUEST_ACCESS_LOCATION = 100
@@ -75,9 +85,18 @@ class MapFragment : Fragment(){
 
     private fun setMarkerInStartLocation() {
         val marker = createBitmapFromVector(R.drawable.icon_map_mark)
-        mapObjectCollection = binding!!.mapView.map.mapObjects // Инициализируем коллекцию различных объектов на карте
-        placeMarkMapObject = mapObjectCollection.addPlacemark(startLocation, ImageProvider.fromBitmap(marker))
-        placeMarkMapObject.addTapListener(mapObjectTapListener)
+        mapObjectCollection = binding!!.mapView.map.mapObjects
+
+        for (i in listData){
+            val p = Point(i.latitude!!.toDouble(), i.longitude!!.toDouble())
+            placeMarkMapObject = mapObjectCollection.addPlacemark(p, ImageProvider.fromBitmap(marker))
+            placeMarkMapObject.addTapListener { mapObject, point ->
+                showBottomSheet(i)
+                true
+            }
+        }
+
+
     }
 
     private fun moveToStartLocation() {
@@ -100,13 +119,8 @@ class MapFragment : Fragment(){
         return bitmap
     }
 
-    private val mapObjectTapListener = MapObjectTapListener { mapObject, point ->
-        showBottomSheet()
-        true
-    }
-
-    private fun showBottomSheet(){
-        val bottomSheet = BottomSheetGround()
+    private fun showBottomSheet(i: GetGroundsResponse){
+        val bottomSheet = BottomSheetGround(i)
         val fragmentManager = (activity as FragmentActivity).supportFragmentManager
         fragmentManager.let {
             bottomSheet.show(it, BottomSheetGround.TAG)
@@ -131,7 +145,7 @@ class MapFragment : Fragment(){
                 val location: Location? = task.result
                 startLocation = Point(location!!.latitude, location!!.longitude, )
                 moveToStartLocation()
-                setMarkerInStartLocation()
+                getGrounds()
             }
         }else{
             requestPermission()
@@ -180,6 +194,29 @@ class MapFragment : Fragment(){
     override fun onStop() {
         super.onStop()
         binding!!.mapView.onStop()
+    }
+
+    private fun getGrounds(){
+        RetrofitHelper().getApi().getGrounds().enqueue(object :
+            Callback<List<GetGroundsResponse>> {
+
+            override fun onResponse(
+                call: Call<List<GetGroundsResponse>>,
+                response: Response<List<GetGroundsResponse>>
+            ) {
+                if (response.isSuccessful){
+                    listData = response.body()!!
+                    setMarkerInStartLocation()
+                }
+                Log.d("MyLog", response.toString())
+            }
+
+            override fun onFailure(call: Call<List<GetGroundsResponse>>, t: Throwable) {
+                Log.d("MyLog", t.message.toString())
+                Toast.makeText(activity, "Возникла ошибка, проверьте подключение", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 
 }

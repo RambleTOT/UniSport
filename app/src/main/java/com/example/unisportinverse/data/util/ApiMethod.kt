@@ -1,5 +1,6 @@
 package com.example.unisportinverse.data.util
 
+import com.example.unisportinverse.data.model.GetGroundsResponse
 import com.example.unisportinverse.data.model.GetMyAccount
 import com.example.unisportinverse.data.model.GetSectionsResponse
 import com.example.unisportinverse.data.model.GetTokenResponse
@@ -24,7 +25,7 @@ interface ApiMethod {
     ): Call<GetTokenResponse>
 
     @GET("sections")
-    fun getNews(
+    fun getSections(
     ): Call<List<GetSectionsResponse>>
 
     @GET("users/me")
@@ -32,5 +33,8 @@ interface ApiMethod {
         @Header("Authorization") token: String
     ): Call<GetMyAccount>
 
+    @GET("grounds")
+    fun getGrounds(
+    ): Call<List<GetGroundsResчёponse>>
 
 }

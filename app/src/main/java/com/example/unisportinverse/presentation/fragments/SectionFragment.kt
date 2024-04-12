@@ -43,7 +43,7 @@ class SectionFragment : Fragment() {
     }
 
     private fun getSections(){
-        RetrofitHelper().getApi().getNews().enqueue(object :
+        RetrofitHelper().getApi().getSections().enqueue(object :
             Callback<List<GetSectionsResponse>> {
 
             override fun onResponse(
