@@ -35,6 +35,6 @@ interface ApiMethod {
 
     @GET("grounds")
     fun getGrounds(
-    ): Call<List<GetGroundsResчёponse>>
+    ): Call<List<GetGroundsResponse>>
 
 }

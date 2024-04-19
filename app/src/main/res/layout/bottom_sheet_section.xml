@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="32dp"
+        android:elevation="0dp"
+        android:outlineSpotShadowColor="@android:color/transparent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_onboarding_fourth" />
+
+        <ImageButton
+            android:id="@+id/button_close_ground"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="21dp"
+            android:background="@drawable/icon_close_sheet_menu"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="32dp"
+        android:elevation="0dp"
+        android:outlineSpotShadowColor="@android:color/transparent"
+        android:layout_marginTop="-50dp"
+        android:background="@color/white">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_ground_sheet_tilte"
+                        android:fontFamily="@font/mabrypro_medium"
+                        android:text="@string/text_section_one"
+                        android:textSize="16sp"
+                        android:includeFontPadding="true"
+                        />
+
+                    <TextView
+                        android:id="@+id/name_section"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_ground_sheet_name"
+                        android:fontFamily="@font/mabrypro_bold"
+                        tools:text="Футболика"
+                        android:textSize="24sp"
+                        android:layout_marginTop="4dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/place"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_phone_profile"
+                        android:fontFamily="@font/mabrypro_medium"
+                        tools:text="Пионерский • Красноармейская 27 "
+                        android:textSize="14sp"
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="10dp"
+                        />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_line_profile"
+                        android:layout_marginTop="12dp"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

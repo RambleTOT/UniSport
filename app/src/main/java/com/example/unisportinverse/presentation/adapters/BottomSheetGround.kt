@@ -31,8 +31,10 @@ class BottomSheetGround(val i: GetGroundsResponse) : BottomSheetDialogFragment()
         super.onViewCreated(view, savedInstanceState)
         Log.d("MyLog", i.name.toString())
         binding!!.nameGround.text = i.name
+        binding!!.infoGround.text = i.description
+        binding!!.placeGround.text = i.address
+        binding!!.timeGround.text = i.timetable
         binding!!.buttonCloseGround.setOnClickListener {
-            
         }
     }
 

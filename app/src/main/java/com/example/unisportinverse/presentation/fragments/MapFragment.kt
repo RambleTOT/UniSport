@@ -90,7 +90,8 @@ class MapFragment : Fragment(){
         for (i in listData){
             val p = Point(i.latitude!!.toDouble(), i.longitude!!.toDouble())
             placeMarkMapObject = mapObjectCollection.addPlacemark(p, ImageProvider.fromBitmap(marker))
-            placeMarkMapObject.addTapListener { mapObject, point ->
+
+            placeMarkMapObject.addTapListener { _, _ ->
                 showBottomSheet(i)
                 true
             }

@@ -33,5 +33,9 @@
     <string name="text_hint_map_search">Площадка, место, парк</string>
     <string name="text_more_detailed">Подробнее</string>
     <string name="text_sports_ground">Спортплощадка</string>
+    <string name="text_section_one">Секция</string>
     <string name="text_sports_review">Обзор</string>
+    <string name="text_information">Информация</string>
+    <string name="text_address">Адрес</string>
+    <string name="text_contacts">Контакты</string>
 </resources>
