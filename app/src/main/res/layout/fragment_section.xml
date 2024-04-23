@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.fragments.SectionFragment"
-    android:background="@color/color_background">
+    android:background="@color/color_background"
+    android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -82,7 +83,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout">
 
@@ -90,8 +91,8 @@
             android:id="@+id/recycler_view_sections"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_section"/>
+            tools:listitem="@layout/item_section" />
 
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
