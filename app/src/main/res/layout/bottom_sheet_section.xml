@@ -94,6 +94,101 @@
                         android:src="@drawable/icon_line_profile"
                         android:layout_marginTop="12dp"/>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/icon_current_section_age"/>
+
+                        <TextView
+                            android:id="@+id/age_section"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/color_text_section_sheet"
+                            android:fontFamily="@font/mabrypro_medium"
+                            tools:text="6-12 лет"
+                            android:textSize="14sp"
+                            android:includeFontPadding="false"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="8dp"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/icon_current_section_time"/>
+
+                        <TextView
+                            android:id="@+id/time_section"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/color_text_section_sheet"
+                            android:fontFamily="@font/mabrypro_medium"
+                            tools:text="с 18:00 до 20:00 - Вт, Чт, Сб"
+                            android:textSize="14sp"
+                            android:includeFontPadding="false"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="8dp"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/icon_current_section_rating"/>
+
+                        <TextView
+                            android:id="@+id/rating_section"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/color_text_section_sheet"
+                            android:fontFamily="@font/mabrypro_medium"
+                            tools:text="4,5 / 5 • 21 оценка"
+                            android:textSize="14sp"
+                            android:includeFontPadding="false"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="8dp"
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_line_profile"
+                        android:layout_marginTop="12dp"/>
+
+                    <TextView
+                        android:id="@+id/description_section"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_text_section_sheet"
+                        android:fontFamily="@font/mabrypro_medium"
+                        tools:text="Наша учебная программа разработана ведущими научными сотрудниками НГУ им. П.Ф. Лесгафта в соответствии со стандартами образования детей"
+                        android:textSize="14sp"
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="12dp"
+                        />
 
                 </LinearLayout>
 

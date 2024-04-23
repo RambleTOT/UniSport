@@ -120,7 +120,6 @@
                 android:layout_height="60dp"
                 android:minHeight="60dp"
                 android:background="@drawable/edit_text_background"
-                android:hint="@string/hint_registration_phone"
                 android:textColorHint="@color/text_color_hint"
                 android:fontFamily="@font/mabrypro_medium"
                 android:textSize="15sp"

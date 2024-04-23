@@ -7,9 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.unisportinverse.data.model.GetGroundsResponse
 import com.example.unisportinverse.data.model.GetSectionsResponse
 import com.example.unisportinverse.databinding.FragmentSectionBinding
+import com.example.unisportinverse.presentation.adapters.BottomSheetGround
+import com.example.unisportinverse.presentation.adapters.BottomSheetSection
 import com.example.unisportinverse.presentation.adapters.SectionsAdapter
 import com.example.unisportinverse.presentation.managers.RetrofitHelper
 import retrofit2.Call
@@ -55,6 +59,9 @@ class SectionFragment : Fragment() {
                     sectionsList = response.body()!!
                     binding!!.recyclerViewSections.apply {
                         newsAdapter = SectionsAdapter(sectionsList)
+                        newsAdapter.onItemClick = {
+                            showBottomSheet(it)
+                        }
                         adapter = newsAdapter
                         layoutManager = LinearLayoutManager(requireActivity());
 
@@ -69,6 +76,14 @@ class SectionFragment : Fragment() {
             }
 
         })
+    }
+
+    private fun showBottomSheet(i: GetSectionsResponse){
+        val bottomSheet = BottomSheetSection(i)
+        val fragmentManager = (activity as FragmentActivity).supportFragmentManager
+        fragmentManager.let {
+            bottomSheet.show(it, BottomSheetSection.TAG)
+        }
     }
 
 }

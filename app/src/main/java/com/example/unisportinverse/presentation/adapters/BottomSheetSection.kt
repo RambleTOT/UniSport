@@ -7,13 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.unisportinverse.R
 import com.example.unisportinverse.data.model.GetGroundsResponse
+import com.example.unisportinverse.data.model.GetSectionsResponse
 import com.example.unisportinverse.databinding.BottomSheetGroundBinding
+import com.example.unisportinverse.databinding.BottomSheetSectionBinding
 import com.example.unisportinverse.databinding.FragmentMapBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class BottomSheetGround(val i: GetGroundsResponse) : BottomSheetDialogFragment() {
+class BottomSheetSection(val i: GetSectionsResponse) : BottomSheetDialogFragment() {
 
-    private var binding: BottomSheetGroundBinding? = null
+    private var binding: BottomSheetSectionBinding? = null
 
     override fun getTheme(): Int = R.style.BottomSheetDialogTheme
 
@@ -22,20 +24,20 @@ class BottomSheetGround(val i: GetGroundsResponse) : BottomSheetDialogFragment()
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = BottomSheetGroundBinding.inflate(inflater, container, false)
+        binding = BottomSheetSectionBinding.inflate(inflater, container, false)
         val view = binding!!.root
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("MyLog", i.name.toString())
-        binding!!.nameGround.text = i.name
-        binding!!.infoGround.text = i.description
-        binding!!.placeGround.text = i.address
-        binding!!.timeGround.text = i.timetable
+        binding!!.nameSection.text = i.name
+        binding!!.place.text = i.address
+        binding!!.ageSection.text = i.age
+        binding!!.timeSection.text = i.days
+        binding!!.ratingSection.text = i.rating
+        binding!!.descriptionSection.text = i.description
         binding!!.buttonCloseGround.setOnClickListener {
-
         }
     }
 

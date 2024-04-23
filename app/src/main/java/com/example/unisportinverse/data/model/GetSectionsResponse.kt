@@ -15,6 +15,8 @@ data class GetSectionsResponse(
     val description: String?,
     @SerializedName("name")
     val name: String?,
-    @SerializedName("timetable")
-    val timetable: String?,
+    @SerializedName("rating")
+    val rating: String?,
+    @SerializedName("days")
+    val days: String?,
 )

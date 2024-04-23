@@ -25,4 +25,5 @@
     <color name="color_ground_sheet_name">#171717</color>
     <color name="color_ground_sheet_bottom">#FAFAFA</color>
     <color name="color_text_ground_sheet">#5B5B5B</color>
+    <color name="color_text_section_sheet">#575757</color>
 </resources>

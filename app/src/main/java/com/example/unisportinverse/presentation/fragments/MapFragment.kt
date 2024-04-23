@@ -90,14 +90,13 @@ class MapFragment : Fragment(){
         for (i in listData){
             val p = Point(i.latitude!!.toDouble(), i.longitude!!.toDouble())
             placeMarkMapObject = mapObjectCollection.addPlacemark(p, ImageProvider.fromBitmap(marker))
-
+            Log.d("MyLog", "listData $i")
             placeMarkMapObject.addTapListener { _, _ ->
+                Log.d("MyLog", "click $i")
                 showBottomSheet(i)
                 true
             }
         }
-
-
     }
 
     private fun moveToStartLocation() {

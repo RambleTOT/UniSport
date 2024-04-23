@@ -10,6 +10,8 @@ class SectionsAdapter (
     private val newsList: List<GetSectionsResponse>
 ): RecyclerView.Adapter<SectionsAdapter.ViewHolder>() {
 
+    var onItemClick : ((GetSectionsResponse) -> Unit)? = null
+
     inner class ViewHolder(val binding: ItemSectionBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,8 +29,11 @@ class SectionsAdapter (
         holder.binding.apply {
             nameSection.text = currentItem.name
             ageSection.text = "${currentItem.age} лет"
-            timeSection.text = currentItem.timetable
+            timeSection.text = currentItem.days
             placeSection.text = currentItem.address
+            holder.itemView.setOnClickListener{
+                onItemClick?.invoke(currentItem)
+            }
         }
     }
 
