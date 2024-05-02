@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="26dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/test_photo_recommend"
+        android:adjustViewBounds="true"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginVertical="14dp">
+
+                <TextView
+                    android:id="@+id/name_recommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mabrypro_bold"
+                    android:textColor="@color/white"
+                    android:textSize="28sp"
+                    tools:text="Чемпионат \nХоккейная лига 2.0" />
+
+                <TextView
+                    android:id="@+id/description_recommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mabrypro_medium"
+                    android:textColor="@color/color_description_recommend"
+                    android:textSize="14sp"
+                    tools:text="Захватывающий матч Сочи / Москва" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_information_ground"
+                        android:paddingVertical="8dp"
+                        android:paddingHorizontal="17dp">
+
+                        <TextView
+                            android:id="@+id/price_recommend"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/mabrypro_medium"
+                            tools:text="от 200 ₽"
+                            android:textSize="14sp"
+                            android:includeFontPadding="false"
+                            android:padding="2dp"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/background_time_recommend"
+                            android:paddingVertical="8dp"
+                            android:paddingHorizontal="10dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:src="@drawable/icon_time_reccomend"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:id="@+id/date_recommend"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/mabrypro_medium"
+                                tools:text="3 марта"
+                                android:textSize="14sp"
+                                android:includeFontPadding="false"
+                                android:padding="2dp"
+                                android:layout_marginStart="8dp"
+                                />
+
+                            <ImageView
+                                android:layout_width="4dp"
+                                android:layout_height="4dp"
+                                android:src="@drawable/icon_point"
+                                android:layout_gravity="center"
+                                android:layout_marginHorizontal="6dp"/>
+
+                            <TextView
+                                android:id="@+id/time_recommend"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/mabrypro_medium"
+                                tools:text="18:00 - 19:00"
+                                android:textSize="14sp"
+                                android:includeFontPadding="false"
+                                android:padding="2dp"
+                                android:layout_marginStart="8dp"
+                                />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

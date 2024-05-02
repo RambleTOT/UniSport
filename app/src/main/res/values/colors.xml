@@ -26,4 +26,6 @@
     <color name="color_ground_sheet_bottom">#FAFAFA</color>
     <color name="color_text_ground_sheet">#5B5B5B</color>
     <color name="color_text_section_sheet">#575757</color>
+    <color name="color_description_recommend">#CCFFFFFF</color>
+    <color name="color_back_time_recommend">#B53A3A3A</color>
 </resources>

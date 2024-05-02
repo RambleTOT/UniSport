@@ -37,8 +37,10 @@ class BottomSheetSection(val i: GetSectionsResponse) : BottomSheetDialogFragment
         binding!!.timeSection.text = i.days
         binding!!.ratingSection.text = i.rating
         binding!!.descriptionSection.text = i.description
-        binding!!.buttonCloseGround.setOnClickListener {
-        }
+//        binding!!.buttonCloseGround.setOnClickListener {
+//
+//        }
+
     }
 
     companion object {
