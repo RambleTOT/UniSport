@@ -15,4 +15,8 @@ data class GetRecommendResponse(
     val endingAt: String?,
     @SerializedName("price")
     val price: String?,
+    @SerializedName("link")
+    val link: String?,
+    @SerializedName("image")
+    val image: String?,
 )

@@ -33,7 +33,7 @@ class BottomSheetSection(val i: GetSectionsResponse) : BottomSheetDialogFragment
         super.onViewCreated(view, savedInstanceState)
         binding!!.nameSection.text = i.name
         binding!!.place.text = i.address
-        binding!!.ageSection.text = i.age
+        binding!!.ageSection.text = "${i.age} лет"
         binding!!.timeSection.text = i.days
         binding!!.ratingSection.text = i.rating
         binding!!.descriptionSection.text = i.description
