@@ -40,4 +40,6 @@
     <string name="text_contacts">Контакты</string>
     <string name="text_teachers">Преподаватели</string>
     <string name="text_to_enroll">Записаться</string>
+    <string name="text_where_go">Куда сходить</string>
+    <string name="text_where_participant">Где поучаствовать</string>
 </resources>

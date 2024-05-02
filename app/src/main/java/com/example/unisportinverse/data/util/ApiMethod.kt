@@ -1,5 +1,6 @@
 package com.example.unisportinverse.data.util
 
+import com.example.unisportinverse.data.model.GetEventsResponse
 import com.example.unisportinverse.data.model.GetGroundsResponse
 import com.example.unisportinverse.data.model.GetMyAccount
 import com.example.unisportinverse.data.model.GetRecommendResponse
@@ -41,5 +42,9 @@ interface ApiMethod {
     @GET("recommendations")
     fun getRecommendations(
     ): Call<List<GetRecommendResponse>>
+
+    @GET("events")
+    fun getEvents(
+    ): Call<List<GetEventsResponse>>
 
 }

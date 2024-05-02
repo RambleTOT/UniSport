@@ -34,9 +34,9 @@ class BottomSheetGround(val i: GetGroundsResponse) : BottomSheetDialogFragment()
         binding!!.infoGround.text = i.description
         binding!!.placeGround.text = i.address
         binding!!.timeGround.text = i.timetable
-        binding!!.buttonCloseGround.setOnClickListener {
-
-        }
+//        binding!!.buttonCloseGround.setOnClickListener {
+//
+//        }
     }
 
     companion object {

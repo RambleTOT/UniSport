@@ -157,7 +157,7 @@ class LoginFragment : Fragment() {
             ) {
                 if (response.isSuccessful) {
                     tokenManager.saveToken(response.body()!!.token.toString())
-                    firstEntryManager.saveFirstEntry(true)
+                    firstEntryManager.saveFirstEntry(false)
                     binding!!.progressLogin.visibility = View.INVISIBLE
                     val transaction = activity!!.supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.layout_fragment, BottomNavBarFragment())

@@ -111,6 +111,7 @@
             app:cursorColor="@color/text_color_edit_text"
             style="@style/CustomTextInputLayout"
             app:hintEnabled="false"
+            android:hint="@string/phone_number"
             android:visibility="visible"
             >
 
@@ -119,6 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:minHeight="60dp"
+                android:hint="@string/phone_number"
                 android:background="@drawable/edit_text_background"
                 android:textColorHint="@color/text_color_hint"
                 android:fontFamily="@font/mabrypro_medium"
