@@ -2,6 +2,7 @@ package com.example.unisportinverse.data.util
 
 import com.example.unisportinverse.data.model.GetGroundsResponse
 import com.example.unisportinverse.data.model.GetMyAccount
+import com.example.unisportinverse.data.model.GetRecommendResponse
 import com.example.unisportinverse.data.model.GetSectionsResponse
 import com.example.unisportinverse.data.model.GetTokenResponse
 import com.example.unisportinverse.data.model.UserLoginEntity
@@ -36,5 +37,9 @@ interface ApiMethod {
     @GET("grounds")
     fun getGrounds(
     ): Call<List<GetGroundsResponse>>
+
+    @GET("recommendations")
+    fun getRecommendations(
+    ): Call<List<GetRecommendResponse>>
 
 }
